@@ -13,3 +13,5 @@ set clipboard=unnamedplus
 
 map <c-j> 5j
 map <c-k> 5k
+map <c-h> 5h
+map <c-l> 5l
