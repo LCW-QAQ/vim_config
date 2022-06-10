@@ -4,6 +4,7 @@ set ts=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set list
 set autoindent
 set helplang=cn
 set showmode
