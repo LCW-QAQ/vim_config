@@ -1,0 +1,108 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+syntax on
+set number
+set cursorline
+set wrap
+set showcmd
+" wildmenu 打开vim tab提示
+set wildmenu
+
+" 使用前需要安装xclip
+set clipboard=unnamedplus
+
+" 搜索时忽略大小写
+set ignorecase
+" 智能搜索, 大小写
+set smartcase
+set ignorecase
+set hlsearch " 搜索高亮
+set incsearch " 搜索实时高亮
+set showmode
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+set mouse=a
+set encoding=utf-8
+set list
+set autochdir
+set scrolloff=5
+set ts=4
+set shiftwidth=4
+set smarttab
+set autoindent
+
+" normal模式下自动切换英文
+set keep-english-in-normal-and-restore-in-insert
+
+let mapleader=" "
+
+noremap <c-j> 5j
+noremap <c-k> 5k
+noremap <c-h> 5h
+noremap <c-l> 5l
+noremap <c-s> :w<cr>
+
+map <c-u> <c-r>
+
+map <leader>k <c-w>k
+map <leader>j <c-w>j
+map <leader>h <c-w>h
+map <leader>l <c-w>l
+
+map <up> :res -5<cr>
+map <down> :res +5<cr>
+map <left> :vertical resize-5<cr>
+map <right> :vertical resize+5<cr>
+
+map te :tabe<cr>
+map tn :tabn<cr>
+map tp :tabp<cr>
+map tc :tabc<cr>
+
+map sv <c-w>v
+map sh <c-w>s
+
+" plugins
+set multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap <C-b> <Plug>SkipOccurrence
+xmap <C-b> <Plug>SkipOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
