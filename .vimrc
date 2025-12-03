@@ -1,4 +1,5 @@
 syntax on
+set nocompatible
 set number
 set cursorline
 set wrap
@@ -57,3 +58,4 @@ map tc :tabc<cr>
 
 map sv <c-w>t<c-w>H
 map sh <c-w>t<c-w>K
+
