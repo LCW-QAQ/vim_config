@@ -60,6 +60,10 @@ noremap <c-h> 5h
 noremap <c-l> 5l
 noremap <c-s> :w<cr>
 
+" 查找下一个或上一个时自动居中
+noremap N Nzz
+noremap n nzz
+
 map <c-u> <c-r>
 
 map <leader>k <c-w>k
