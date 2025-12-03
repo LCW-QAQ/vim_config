@@ -8,8 +8,9 @@ set showcmd
 " wildmenu 打开vim tab提示
 set wildmenu
 
-" 使用前需要安装xclip
+" 使用前需要安装xclip或clip库
 " set clipboard=unnamedplus
+set clipboard=unnamed
 
 " 搜索时忽略大小写
 set ignorecase
