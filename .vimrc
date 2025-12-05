@@ -59,6 +59,7 @@ noremap <c-k> 5k
 noremap <c-h> 5h
 noremap <c-l> 5l
 noremap <c-s> :w<cr>
+noremap Q :q<enter>
 
 " 查找下一个或上一个时自动居中
 noremap N Nzz
@@ -83,3 +84,4 @@ map tc :tabc<cr>
 
 map sv <c-w>v
 map sh <c-w>s
+
