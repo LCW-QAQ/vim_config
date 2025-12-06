@@ -79,5 +79,13 @@ map("n", "<leader>br", ":BufferLineCloseRight<cr>", { noremap = true, silent = t
 -- 关闭左侧buffe
 map("n", "<leader>bl", ":BufferLineCloseLeft<cr>", { noremap = true, silent = true })
 
+-- 终端配置
+-- 支持esc退出插入模式
+-- map("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
+map("t", "<leader>l", "<Cmd> wincmd l<CR>", { noremap = true, silent = true })
+map("t", "<leader>h", "<Cmd> wincmd h<CR>", { noremap = true, silent = true })
+map("t", "<leader>j", "<Cmd> wincmd j<CR>", { noremap = true, silent = true })
+map("t", "<leader>k", "<Cmd> wincmd k<CR>", { noremap = true, silent = true })
+
 -- #END Plugin Keymaps
 
