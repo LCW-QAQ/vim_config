@@ -108,6 +108,14 @@ end)
 vim.keymap.set({ "x", "o" }, "as", function()
   require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
 end)
+-- 将当前参数与下一个参数替换
+vim.keymap.set("n", "<leader>a", function()
+  require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
+end)
+-- 将当前参数与上一个参数替换
+vim.keymap.set("n", "<leader>A", function()
+  require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
+end)
 
 -- #END Plugin Keymaps
 
