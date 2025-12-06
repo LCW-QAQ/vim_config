@@ -17,6 +17,7 @@ vim.opt.wildmenu = true              -- 开启 tab 补全提示（set wildmenu�
 vim.opt.showmode = true              -- 显示当前模式（set showmode）
 vim.opt.laststatus = 2               -- 始终显示状态栏（set laststatus=2）
 vim.opt.scrolloff = 5                -- 光标上下保留5行滚动边距（set scrolloff=5）
+vim.opt.termguicolors = true         -- 启用24bit色彩
 
 -- ========================================
 -- 剪贴板配置
