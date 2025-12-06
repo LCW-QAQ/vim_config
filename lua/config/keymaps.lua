@@ -90,32 +90,32 @@ map("t", "<leader>k", "<Cmd> wincmd k<CR>", { noremap = true, silent = true })
 -- treesitter-textobjects 配置
 -- 选中「函数外部」（包含函数名 / 括号等）
 vim.keymap.set({ "x", "o" }, "af", function()
-  require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
-end)
+  require "@function.outer".select_textobject("nvim-treesitter-textobjects.select", "textobjects")
+end, { desc = "选中「函数外部」" })
 -- 选中「函数内部」（仅函数体）
 vim.keymap.set({ "x", "o" }, "if", function()
   require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
-end)
+end, { desc = "选中「函数内部」" })
 -- 选中「类外部」（包含类定义边界）
 vim.keymap.set({ "x", "o" }, "ac", function()
   require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
-end)
+end, { desc = "选中「类外部」" })
 -- 选中「类内部」（仅类体）
 vim.keymap.set({ "x", "o" }, "ic", function()
   require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
-end)
+end, { desc = "选中「类内部」" })
 -- 选中「局部作用域」（比如函数内的作用域）
 vim.keymap.set({ "x", "o" }, "as", function()
   require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
-end)
+end, { desc = "选中「局部作用域」" })
 -- 将当前参数与下一个参数替换
 vim.keymap.set("n", "<leader>a", function()
   require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
-end)
+end, { desc = "将当前参数与下一个参数替换" })
 -- 将当前参数与上一个参数替换
 vim.keymap.set("n", "<leader>A", function()
   require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
-end)
+end, { desc = "将当前参数与上一个参数替换" })
 
 -- #END Plugin Keymaps
 
