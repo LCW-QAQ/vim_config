@@ -1,13 +1,19 @@
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd('BufReadPost', {
-  pattern = '*',
+-- 保存时自动格式化
+autocmd("BufWritePre", {
+  pattern = "*",
   callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 1 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
+    vim.lsp.buf.format({ async = false })
+  end
 })
 
+-- 进入文件时光标回到上次位置
+autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.cmd("normal! g'\"")
+    end
+  end
+})
