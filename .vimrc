@@ -10,6 +10,7 @@ set wildmenu
 
 " 使用前需要安装xclip或clip库
 " set clipboard=unnamedplus
+" windows 系统下有时候unnamedplus会有问题
 set clipboard=unnamed
 
 " 搜索时忽略大小写
@@ -62,7 +63,7 @@ noremap <c-s> :w<cr>
 noremap Q :q<enter>
 
 " 查找下一个或上一个时自动居中
-noremap N Nzz
+
 noremap n nzz
 
 map <c-u> <c-r>
@@ -84,4 +85,3 @@ map tc :tabc<cr>
 
 map sv <c-w>v
 map sh <c-w>s
-
