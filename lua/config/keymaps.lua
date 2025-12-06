@@ -87,5 +87,27 @@ map("t", "<leader>h", "<Cmd> wincmd h<CR>", { noremap = true, silent = true })
 map("t", "<leader>j", "<Cmd> wincmd j<CR>", { noremap = true, silent = true })
 map("t", "<leader>k", "<Cmd> wincmd k<CR>", { noremap = true, silent = true })
 
+-- treesitter-textobjects 配置
+-- 选中「函数外部」（包含函数名 / 括号等）
+vim.keymap.set({ "x", "o" }, "af", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+end)
+-- 选中「函数内部」（仅函数体）
+vim.keymap.set({ "x", "o" }, "if", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+end)
+-- 选中「类外部」（包含类定义边界）
+vim.keymap.set({ "x", "o" }, "ac", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+end)
+-- 选中「类内部」（仅类体）
+vim.keymap.set({ "x", "o" }, "ic", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+end)
+-- 选中「局部作用域」（比如函数内的作用域）
+vim.keymap.set({ "x", "o" }, "as", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
+end)
+
 -- #END Plugin Keymaps
 
