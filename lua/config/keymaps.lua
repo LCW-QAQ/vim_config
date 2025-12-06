@@ -8,11 +8,14 @@
 -- ========================================
 local map = vim.keymap.set  -- 简化映射函数
 
--- 1. 方向键快速移动（5行/列）
 map('n', '<c-j>', '5j', { noremap = true, silent = true })
 map('n', '<c-k>', '5k', { noremap = true, silent = true })
 map('n', '<c-h>', '5h', { noremap = true, silent = true })
 map('n', '<c-l>', '5l', { noremap = true, silent = true })
+map('v', '<c-j>', '5j', { noremap = true, silent = true })
+map('v', '<c-k>', '5k', { noremap = true, silent = true })
+map('v', '<c-h>', '5h', { noremap = true, silent = true })
+map('v', '<c-l>', '5l', { noremap = true, silent = true })
 
 -- 2. 保存 & 退出
 map('n', '<c-s>', ':w<cr>', { noremap = true, silent = true })  -- 快捷键保存
