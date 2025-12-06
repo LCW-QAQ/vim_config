@@ -8,6 +8,8 @@
 -- ========================================
 local map = vim.keymap.set  -- 简化映射函数
 
+local pluginKeys = {}
+
 map('n', '<c-j>', '5j', { noremap = true, silent = true })
 map('n', '<c-k>', '5k', { noremap = true, silent = true })
 map('n', '<c-h>', '5h', { noremap = true, silent = true })
@@ -17,35 +19,55 @@ map('v', '<c-k>', '5k', { noremap = true, silent = true })
 map('v', '<c-h>', '5h', { noremap = true, silent = true })
 map('v', '<c-l>', '5l', { noremap = true, silent = true })
 
--- 2. 保存 & 退出
+-- 保存 & 退出
 map('n', '<c-s>', ':w<cr>', { noremap = true, silent = true })  -- 快捷键保存
 map('n', 'Q', ':q<cr>', { noremap = true, silent = true })      -- Q 快速退出
 
--- 3. 搜索结果自动居中
+-- 搜索结果自动居中
 map('n', 'N', 'Nzz', { noremap = true, silent = true })
 map('n', 'n', 'nzz', { noremap = true, silent = true })
 
--- 4. 快速撤销/重做（原 <c-u> 映射到 <c-r>）
+-- 快速撤销/重做（原 <c-u> 映射到 <c-r>）
 map('n', '<c-u>', '<c-r>', { noremap = false, silent = true })
 
--- 5. 分屏切换（leader + 方向）
+-- 分屏切换（leader + 方向）
 map('n', '<leader>k', '<c-w>k', { noremap = false, silent = true })
 map('n', '<leader>j', '<c-w>j', { noremap = false, silent = true })
 map('n', '<leader>h', '<c-w>h', { noremap = false, silent = true })
 map('n', '<leader>l', '<c-w>l', { noremap = false, silent = true })
 
--- 6. 调整分屏大小（方向键）
+-- 调整分屏大小（方向键）
 map('n', '<up>', ':res -5<cr>', { noremap = false, silent = true })
 map('n', '<down>', ':res +5<cr>', { noremap = false, silent = true })
 map('n', '<left>', ':vertical resize -5<cr>', { noremap = false, silent = true })  -- 补全空格，避免语法错误
 map('n', '<right>', ':vertical resize +5<cr>', { noremap = false, silent = true })
 
--- 7. 标签页操作
+-- 标签页操作
 map('n', 'te', ':tabe<cr>', { noremap = false, silent = true })   -- 新建标签页
 map('n', 'tn', ':tabn<cr>', { noremap = false, silent = true })   -- 下一个标签页
 map('n', 'tp', ':tabp<cr>', { noremap = false, silent = true })   -- 上一个标签页
 map('n', 'tc', ':tabc<cr>', { noremap = false, silent = true })   -- 关闭当前标签页
 
--- 8. 快速分屏
+-- 快速分屏
 map('n', 'sv', '<c-w>v', { noremap = false, silent = true })      -- 垂直分屏
 map('n', 'sh', '<c-w>s', { noremap = false, silent = true })      -- 水平分屏
+
+-- 代码注释插件
+-- see ./lua/plugins/comment.lua
+pluginKeys.comment = {
+  -- Normal 模式快捷键
+  toggler = {
+    line = "gcc", -- 行注释
+    block = "gbc", -- 块注释
+  },
+  -- Visual 模式
+  opleader = {
+    line = "gc",
+    bock = "gb",
+  },
+}
+-- ctrl + /
+map("n", "<C-i>", "gcc", { noremap = false })
+map("v", "<C-i>", "gcc", { noremap = false })
+
+return pluginKeys
