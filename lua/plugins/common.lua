@@ -15,12 +15,6 @@ return {
     end
   },
   {
-    "akinsho/bufferline.nvim",
-    config = function ()
-      require("bufferline").setup()
-    end
-  },
-  {
     "kylechui/nvim-surround",
     version = "^3.0.0",
     event = "VeryLazy",

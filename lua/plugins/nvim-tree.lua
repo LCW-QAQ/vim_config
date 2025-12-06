@@ -7,6 +7,12 @@ return {
         git = {
             enable = false
         },
+        actions = {
+          open_file = {
+            -- 可选：打开文件时调整窗口大小（适配宽屏）
+            resize_window = true,
+          },
+        },
         on_attach = function (bufnr)
           local api = require("nvim-tree.api")
 

@@ -57,6 +57,27 @@ map("v", "<leader>nm", ":norm ", { noremap = false, silent = false })
 map("v", ">", ">gv", { noremap = true, silent = true })
 map("v", "<", "<gv", { noremap = true, silent = true })
 
+
+-- #BEGIN Plugin Keymaps
+
 -- nvim-tree 快捷键
 map("n", "<a-m>", ":NvimTreeOpen<cr>", { noremap = false, silent = false })
+
+-- bufferline 左右Tab切换
+map("n", "<a-h>", ":BufferLineCyclePrev<cr>", { noremap = false, silent = false })
+map("n", "<a-l>", ":BufferLineCycleNext<cr>", { noremap = false, silent = false })
+-- 新建buffer
+map("n", "<leader>bn", ":enew <cr>", { noremap = true, silent = true })
+-- 关闭当前buffer
+map("n", "<leader>bc", ":bdelete!<cr>", { noremap = true, silent = true })
+-- 关闭标签buffer
+map("n", "<leader>bp", ":BufferLinePickClose<cr>", { noremap = true, silent = true })
+-- 关闭非当前Buffer
+map("n", "<leader>bo", ":BufferLineCloseLeft<cr>:BufferLineCloseRight<cr>", { noremap = true, silent = true })
+-- 关闭右侧buffer
+map("n", "<leader>br", ":BufferLineCloseRight<cr>", { noremap = true, silent = true })
+-- 关闭左侧buffe
+map("n", "<leader>bl", ":BufferLineCloseLeft<cr>", { noremap = true, silent = true })
+
+-- #END Plugin Keymaps
 

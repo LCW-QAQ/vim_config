@@ -80,3 +80,8 @@ vim.opt.foldlevel = 99               -- 默认展开所有折叠（set foldlevel
 -- 文本宽度
 -- ========================================
 vim.opt.textwidth = 0                -- 对应 set tw=0（textwidth 缩写为 tw）
+
+
+-- 关闭 Neovim 内置的 netrw（避免与 nvim-tree 冲突）
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
