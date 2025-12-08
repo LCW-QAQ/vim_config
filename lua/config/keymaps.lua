@@ -76,7 +76,7 @@ map("n", "<leader>bc", ":bdelete!<cr>", { noremap = true, silent = true })
 -- 关闭标签buffer
 map("n", "<leader>bpc", ":BufferLinePickClose<cr>", { noremap = true, silent = true })
 -- 跳转到指定buffer
-map("n", "<leader>bp", ":BufferLinePick<cr>", { noremap = true, silent = true })
+map("n", "<leader>bt", ":BufferLinePick<cr>", { noremap = true, silent = true })
 -- 关闭非当前Buffer
 map("n", "<leader>bo", ":BufferLineCloseLeft<cr>:BufferLineCloseRight<cr>", { noremap = true, silent = true })
 -- 关闭右侧buffer
