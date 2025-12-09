@@ -85,3 +85,7 @@ map tc :tabc<cr>
 
 map sv <c-w>v
 map sh <c-w>s
+
+vnoremap > >gv
+vnoremap < <gv
+
