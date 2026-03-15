@@ -26,10 +26,10 @@ vim.opt.ruler = true                 -- 右侧底部显示输入的命令
 -- 使用系统剪贴板（对应 set clipboard=unnamed）
 -- 若需 unnamedplus（跨终端），改为 "unnamedplus"（需安装 xclip/clip）
 -- windows需要安装win32yank，否则可能粘贴结果不正确
---   curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
+--   curl -sLo /tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
 --   unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
 --   chmod +x /tmp/win32yank.exe
---   sudo mv /tmp/win32yank.exe /usr/local/bin/
+--   mv /tmp/win32yank.exe /usr/local/bin/
 vim.opt.clipboard = "unnamedplus"
 
 -- ========================================
