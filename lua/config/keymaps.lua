@@ -58,7 +58,7 @@ map("v", ">", ">gv", { noremap = true, silent = true })
 map("v", "<", "<gv", { noremap = true, silent = true })
 
 -- 切换高亮
-map("n", "<leader>hl", ":set hlsearch!<cr>", { noremap = true, silent = true })
+map("n", "<leader>hl", ":nohl<cr>", { noremap = true, silent = true })
 
 
 -- #BEGIN Plugin Keymaps
