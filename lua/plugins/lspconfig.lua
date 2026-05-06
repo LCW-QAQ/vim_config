@@ -5,6 +5,9 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
+      local clangd_root = vim.fs.root(0, { "compile_commands.json", ".git" })
+        or vim.fn.getcwd()
+
       -- LSP 附加到 buffer 时自动设置快捷键
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -25,7 +28,7 @@ return {
       vim.lsp.config("clangd", {
         cmd = {
           "D:/software/msys64/ucrt64/bin/clangd.exe",
-          "--compile-commands-dir=${workspaceFolder}/build",
+          "--compile-commands-dir=" .. clangd_root .. "/build",
           "--background-index",
           "--completion-style=detailed",
           "--header-insertion=never",
