@@ -126,5 +126,18 @@ end, { desc = "将当前参数与上一个参数替换" })
 map("n", "<leader>md", ":MarkdownPreviewToggle<cr>", { noremap = true, silent = true })
 map("n", "<leader>mds", ":MarkdownPreviewStop<cr>", { noremap = true, silent = true })
 
+-- DAP 调试（延迟加载，按键触发时才 require）
+map("n", "<F5>", function() require("dap").continue() end, { desc = "DAP: 开始/继续调试" })
+map("n", "<F10>", function() require("dap").step_over() end, { desc = "DAP: 单步跳过" })
+map("n", "<F11>", function() require("dap").step_into() end, { desc = "DAP: 单步进入" })
+map("n", "<F12>", function() require("dap").step_out() end, { desc = "DAP: 单步跳出" })
+map("n", "<leader>b", function() require("dap").toggle_breakpoint() end, { desc = "DAP: 切换断点" })
+map("n", "<leader>B", function()
+  require("dap").set_breakpoint(vim.fn.input("断点条件: "))
+end, { desc = "DAP: 设置条件断点" })
+map("n", "<leader>dr", function() require("dap").repl.open() end, { desc = "DAP: 打开 REPL" })
+map("n", "<leader>du", function() require("dapui").toggle() end, { desc = "DAP: 切换调试 UI" })
+map("n", "<leader>dx", function() require("dap").terminate() end, { desc = "DAP: 终止调试" })
+
 -- #END Plugin Keymaps
 

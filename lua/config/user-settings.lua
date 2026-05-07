@@ -5,5 +5,5 @@ return {
   clangd_compile_commands_dir = "build",
 
   -- Python 解释器路径（basedpyright 全局默认，优先使用项目 .venv）
-  python_interpreter = "python",
+  python_interpreter = "C:/Users/user/AppData/Roaming/uv/python/cpython-3.14.1-windows-x86_64-none/python.exe",
 }
