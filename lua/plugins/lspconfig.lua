@@ -5,8 +5,7 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
-      local clangd_root = vim.fs.root(0, { "compile_commands.json", ".git" })
-        or vim.fn.getcwd()
+      local user_settings = require("config.user-settings")
 
       -- LSP 附加到 buffer 时自动设置快捷键
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -25,10 +24,13 @@ return {
       })
 
       -- 配置 clangd，使用 MSYS2 安装的 clangd
+      local clangd_root = vim.fs.root(0, { "compile_commands.json", ".git" })
+        or vim.fn.getcwd()
+
       vim.lsp.config("clangd", {
         cmd = {
-          "D:/software/msys64/ucrt64/bin/clangd.exe",
-          "--compile-commands-dir=" .. clangd_root .. "/build",
+          user_settings.clangd_bin,
+          "--compile-commands-dir=" .. clangd_root .. "/" .. user_settings.clangd_compile_commands_dir,
           "--background-index",
           "--completion-style=detailed",
           "--header-insertion=never",
@@ -43,6 +45,38 @@ return {
       })
 
       vim.lsp.enable("clangd")
+
+      -- 配置 basedpyright，需要通过 pip 安装：pip install basedpyright
+      -- 优先使用项目 .venv，不存在时回退到全局默认解释器
+      local venv_python
+      if vim.fn.has("win32") == 1 then
+        venv_python = vim.fn.getcwd() .. "/.venv/Scripts/python.exe"
+      else
+        venv_python = vim.fn.getcwd() .. "/.venv/bin/python"
+      end
+      if vim.fn.filereadable(venv_python) == 0 then
+        venv_python = user_settings.python_interpreter
+      end
+
+      vim.lsp.config("basedpyright", {
+        capabilities = require("blink.cmp").get_lsp_capabilities(),
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "openFilesOnly",
+            },
+          },
+          python = {
+            pythonPath = venv_python,
+            defaultInterpreterPath = user_settings.python_interpreter,
+          },
+        },
+      })
+
+      vim.lsp.enable("basedpyright")
     end,
   },
   {

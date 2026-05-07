@@ -10,8 +10,17 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    config = function ()
-      require("lualine").setup()
+    config = function()
+      require("lualine").setup({
+        sections = {
+          lualine_c = {
+            { "filename", path = 1 },
+          },
+          lualine_x = {
+            { "filename", path = 2, icon = "folder" },
+          },
+        },
+      })
     end
   },
   {
